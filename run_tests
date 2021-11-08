@@ -1,0 +1,2 @@
+./bin/fizzbuzz 1 > test_output.txt
+diff -y test_output.txt ./test/fizzbuzz_1_expected_output.txt
