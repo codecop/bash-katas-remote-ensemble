@@ -1,2 +1,5 @@
 ./bin/fizzbuzz 1 > test_output.txt
 diff -y -q test_output.txt ./test/fizzbuzz_1_expected_output.txt
+
+./bin/fizzbuzz 2 > test_output.txt
+diff -y test_output.txt ./test/fizzbuzz_2_expected_output.txt
