@@ -7,4 +7,4 @@ compute_diff(){
 
 compute_diff 1
 compute_diff 2
-#compute_diff 3
+compute_diff 3
