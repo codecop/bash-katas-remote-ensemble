@@ -1,6 +1,10 @@
 #!/bin/bash
-./bin/fizzbuzz.sh 1 > test_output.txt
-diff -y --suppress-common-lines test_output.txt ./test/fizzbuzz_1_expected_output.txt
+compute_diff(){
+    echo test_"$1"
+    ./bin/fizzbuzz.sh "$1" > test_output.txt
+    diff -y --suppress-common-lines test_output.txt ./test/fizzbuzz_"$1"_expected_output.txt
+}
 
-./bin/fizzbuzz.sh 2 > test_output.txt
-diff -y --suppress-common-lines test_output.txt ./test/fizzbuzz_2_expected_output.txt
+compute_diff 1
+compute_diff 2
+#compute_diff 3
