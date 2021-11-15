@@ -15,8 +15,10 @@ echo_with_color() {
 }
 
 compute_diff() {
-    ./bin/fizzbuzz.sh "$1" > test_output.txt
-    diff -y --suppress-common-lines ./test/fizzbuzz_"$1"_expected_output.txt test_output.txt
+    script_name="fizzbuzz"
+    test_case="$1"
+    ./bin/${script_name}.sh "${test_case}" > test_output.txt
+    diff -y --suppress-common-lines ./test/${script_name}_"${test_case}"_expected_output.txt test_output.txt
 }
 
 run_test(){
