@@ -37,3 +37,6 @@ run_test 1
 run_test 2
 run_test 3
 run_test 5
+
+# TODO exit code if one test fails -> build stops
+# TODO finish fizzbuzz
