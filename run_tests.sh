@@ -4,6 +4,16 @@ red=$(tput setaf 1)
 green=$(tput setaf 2)
 reset=$(tput sgr0)
 
+echo_with_color() {
+    echo -n "$1"
+    args=$#
+    for (( i=2; i<=$args; i+=1 ))
+    do
+        echo ${!i}
+    done
+    echo -n "${reset}"
+}
+
 compute_diff(){
     
     ./bin/fizzbuzz.sh "$1" > test_output.txt
@@ -11,15 +21,9 @@ compute_diff(){
     DIFF=$(diff -y --suppress-common-lines ./test/fizzbuzz_"$1"_expected_output.txt test_output.txt) 
     if [ "$DIFF" != "" ] 
     then
-        echo -n "${red}"
-        echo test_"$1"
-        echo "expected                                                      | actual"
-        echo "${DIFF}"
-        echo "${reset}"
+        echo_with_color "${red}" test_"$1" "expected                                                      | actual" "${DIFF}" 
     else 
-        echo -n "${green}"
-        echo test_"$1"
-        echo -n "${reset}"
+        echo_with_color "${green}" test_"$1"
     fi
 }
 
