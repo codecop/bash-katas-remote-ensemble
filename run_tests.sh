@@ -3,6 +3,7 @@
 red=$(tput setaf 1)
 green=$(tput setaf 2)
 reset=$(tput sgr0)
+diff_header=$(echo -e "expected\t\t\t\t\t\t      | actual")
 
 echo_with_color() {
     echo -n "$1"
@@ -26,7 +27,7 @@ run_test(){
     diff=$(compute_diff "$1")
     if [ "$diff" != "" ] 
     then
-        echo_with_color "${red}" test_"$1" "expected                                                      | actual" "${diff}" 
+        echo_with_color "${red}" test_"$1" "${diff_header}" "${diff}" 
     else 
         echo_with_color "${green}" test_"$1"
     fi
