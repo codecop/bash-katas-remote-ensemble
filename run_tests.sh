@@ -5,16 +5,21 @@ green=$(tput setaf 2)
 reset=$(tput sgr0)
 
 compute_diff(){
-    echo test_"$1"
+    
     ./bin/fizzbuzz.sh "$1" > test_output.txt
     # grab output of diff -> if 
     DIFF=$(diff -y --suppress-common-lines ./test/fizzbuzz_"$1"_expected_output.txt test_output.txt) 
     if [ "$DIFF" != "" ] 
     then
-        echo "${red}"
+        echo -n "${red}"
+        echo test_"$1"
         echo "expected                                                      | actual"
         echo "${DIFF}"
         echo "${reset}"
+    else 
+        echo -n "${green}"
+        echo test_"$1"
+        echo -n "${reset}"
     fi
 }
 
