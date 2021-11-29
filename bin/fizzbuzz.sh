@@ -10,6 +10,10 @@ get_word_if_dividable() {
     fi
 }
 
+#TODO: read fizzbuzz words from configuration file, using mapfile
+#https://www.computerhope.com/unix/bash/mapfile.htm
+#fizzbuzz_words = ["1", "2"]
+
 for i in $(seq 1 "$1"); 
 do 
     output_value=""
