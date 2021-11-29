@@ -3,16 +3,16 @@
 for i in $(seq 1 "$1"); 
 do 
     output_value=""
-    if [ $(( $i % 3)) == 0 ] && [ $(( $i % 5)) == 0 ]
-    then
-        output_value="fizzbuzz"
-    elif (( "$i" % 3 == 0 ))
+    if (( "$i" % 3 == 0 ))
     then
         output_value=${output_value}"fizz"
-    elif (( "$i" % 5 == 0 ))
+    fi
+    if (( "$i" % 5 == 0 ))
     then
         output_value=${output_value}"buzz"
-    else 
+    fi 
+    if [ "$output_value" == "" ] 
+    then
         output_value="$i"
     fi
     echo ${output_value}
